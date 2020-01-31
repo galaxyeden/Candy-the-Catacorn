@@ -6,7 +6,13 @@ You can [order from OSH Park](https://oshpark.com/shared_projects/ZzWxhv0r) - th
 
 ## Background
 
-I have wanted to learn more about electrical engineering and the 'hardware' side of things, so have started playing with dev boards including the Adafruit Trinket M0, which is the board that inspired this project. But none of them were catacorn enough, so I decided to make one :) 
+I have wanted to learn more about electrical engineering and the 'hardware' side of things, so have started playing with dev boards including the Adafruit Trinket M0, which is the board that inspired this project. But none of them were catacorn enough, so I decided to make one :)
+
+## Copyright/Liability
+
+I'm posting this as a learning project with no intent to make a profit. I used a lot of bits of source material (see thanks below), and thus as I am not a lawyer, I can't comment as to rights other than to say that I claim no rights to my creation - use what I did as you please :) But... it'll probably take some re-imagining of the design for it to be truly original.
+
+Also, I'm obviously not responsible for injuries or anything like that - this is definitely not a safety-tested, commercial project. Build at your own risk. It probably won't even work :)
 
 ## Basic Features
 
@@ -52,7 +58,11 @@ Thank you to the following people:
 
 - Various inspirations for the catacorn, but especially to the kid who asked me to paint their face as a catacorn when I was face painting some years ago. It was the first time I really started thinking what the features of a catacorn should be like. I hope you're doing well today, and I wish you all the best in life :) - also to the many people who've drawn catacorns (and caticorns and unicats) online, and I've taken inspiration from.
 
-- Also, on that note, credit to [Lisa Frank](https://lisafrank.com/) because cute Lisa Frank images were one of my childhood inspirations, and they're just awesome and made me like this style of art. A Google image search gave me more ideas for how to draw the board outline and even how to place components to be part of the art (e.g. using a capacitor as a nose, as one drawing I found had a very square nose).
+- Also, on that note, credit to [Lisa Frank](https://lisafrank.com/) because cute Lisa Frank images were one of my childhood inspirations, and they're just awesome and made me like this style of art. A Google image search gave me more ideas for how to draw the board outline and even how to place components to be part of the art (e.g. using a capacitor as a nose, as one drawing I found had a very square nose). The purple Lisa Frank cat, especially, gave me the idea for how the whiskers could work on a component-kitty. And, only in Lisa Frank land do RGB LED cat eyes make sense :) 
+
+- I used [this image from Freepik](https://www.freepik.com/free-vector/kawaii-style-unicorn-character-collection_4697393.htm#page=1&query=kawaii%20unicorn&position=7) for the general shape of the base (I needed something flatter than most to get the micro USB port in, and I liked how the cat's belly sat down) and head angle of the catacorn, and also for the style of the heart outline on the cheek.
+
+- [Emojipedia](https://emojipedia.org/) came in really useful to for bits of emoji-inspired inspiration, and the capacitive touch zones (which are the heart emoji from a font on my system).
 
 - Q - for being an awesome friend who has helped with so much of the EDA side of working this all out. Thank you for answering late night messages with silly questions!
 
