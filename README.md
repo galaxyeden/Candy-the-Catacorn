@@ -10,7 +10,7 @@ I have wanted to learn more about electrical engineering and the 'hardware' side
 
 ## Copyright/Liability
 
-I'm posting this as a learning project with no intent to make a profit. I used a lot of bits of source material (see thanks below), and thus as I am not a lawyer, I can't comment as to rights other than to say that I claim no rights to my creation - use what I did as you please :) But... it'll probably take some re-imagining of the design for it to be truly original.
+I'm posting this as a learning project with no intent to make a profit. I used a lot of bits of source material (see thanks below), and thus as I am not a lawyer, I can't comment as to rights other than to say that I claim no rights to my creation other than the right to continue using it and modifying it myself - use what I did as you please :) But... it'll probably take some re-imagining of the design for it to be truly original.
 
 Also, I'm obviously not responsible for injuries or anything like that - this is definitely not a safety-tested, commercial project. Build at your own risk. It probably won't even work :)
 
