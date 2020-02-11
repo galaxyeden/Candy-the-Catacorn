@@ -964,8 +964,6 @@ NoConn ~ 6150 1850
 NoConn ~ 5750 2050
 NoConn ~ 950  2300
 NoConn ~ 950  2400
-NoConn ~ 10750 2800
-NoConn ~ 13750 2850
 Wire Wire Line
 	3900 1700 3900 1800
 Wire Wire Line
