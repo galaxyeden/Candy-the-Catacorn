@@ -33,8 +33,9 @@ Also, I'm obviously not responsible for injuries or anything like that - this is
 | 10uF 0603 Capacitor                     | Any                          | 2   |
 | APA102-5050 or Equivalent (e.g. SK9822) | APA Electronic Co (or other) | 2   |
 | JE2835AWT-00-0000-000A0ZF940E           | Cree Inc                     | 2   |
-| Pink LED 0805                           | Generic                      | 4   |
-| Turquoise LED 0805                      | Generic                      | 4   |
+| Pink LED 0805                           | Generic                      | 2   |
+| Turquoise LED 0805                      | Generic                      | 3   |
+| UV/Purple LED 0805                      | Generic                      | 3   |
 | AP2112K-3.3TRG1                         | Diodes Incorporated          | 1   |
 | DSS14UTR                                | SMC Diode Solutions          | 2   |
 | USB3076-30-A                            | GCT                          | 1   |
