@@ -54,14 +54,14 @@ while True:
             d = 1
         for s in range(number_stars):
             stars[s] = (191, 0, i)
-        paws.duty_cycle = 65535
+        paws.duty_cycle = i ** 2
         if i < 87:
             tail_inner.duty_cycle = 0
             tail_outer.duty_cycle = 65535
             cat_eyes.duty_cycle = 0
         elif i < 207:
-            tail_inner.duty_cycle = 16000
-            tail_outer.duty_cycle = 1000
+            tail_inner.duty_cycle = 12000
+            tail_outer.duty_cycle = 10000
             cat_eyes.duty_cycle = 32767
         else:
             tail_inner.duty_cycle = 65535
