@@ -38,7 +38,7 @@ while True:
         n = 30
     for s in range(number_stars):
         stars[s] = (20, 0, int(n / 3))
-    paws.duty_cycle = 150
+    paws.duty_cycle = 225
     cat_eyes.duty_cycle = n * 50
     tail_inner.duty_cycle = n * 30
     tail_outer.duty_cycle = n * 20
