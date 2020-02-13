@@ -2,6 +2,7 @@
 # By @GalaxyAllieCat
 # https://github.com/MermaidAllie/Candy-the-Catacorn
 
+# Let's go read a few libraries. Catacorns want knowledge!
 import board
 from digitalio import DigitalInOut, Direction, Pull
 from analogio import AnalogOut, AnalogIn
@@ -11,7 +12,7 @@ import time
 import random
 import pulseio
 
-# Eyes :D
+# Setup everything we use :D
 number_stars = 2
 stars = dotstar.DotStar(board.APA102_SCK, board.APA102_MOSI, number_stars, brightness=0.15)
 n = 30
@@ -19,14 +20,10 @@ k = 1
 d = 1
 i = 30
 j = 255
-
-# Eye Corners
-cat_eyes = pulseio.PWMOut(board.D13, frequency=400, duty_cycle=0)
-paws = pulseio.PWMOut(board.D0, frequency=400, duty_cycle=0)
-tail_inner = pulseio.PWMOut(board.D2, frequency=400, duty_cycle=0)
-tail_outer = pulseio.PWMOut(board.D4, frequency=400, duty_cycle=0)
-
-# Capacitive Touch Setup
+cat_eyes = pulseio.PWMOut(board.D13, frequency=2000, duty_cycle=0)
+paws = pulseio.PWMOut(board.D0, frequency=2000, duty_cycle=0)
+tail_inner = pulseio.PWMOut(board.D2, frequency=2000, duty_cycle=0)
+tail_outer = pulseio.PWMOut(board.D4, frequency=2000, duty_cycle=0)
 touch_right_ear = touchio.TouchIn(board.D1)
 touch_left_ear = touchio.TouchIn(board.D3)
 
