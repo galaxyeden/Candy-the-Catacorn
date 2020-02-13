@@ -1,4 +1,6 @@
 # Candy the Catacorn
+# By @GalaxyAllieCat
+# https://github.com/MermaidAllie/Candy-the-Catacorn
 
 import board
 from digitalio import DigitalInOut, Direction, Pull
@@ -28,7 +30,6 @@ touch_right_ear = touchio.TouchIn(board.D1)
 touch_left_ear = touchio.TouchIn(board.D3)
 
 # Main Loop
-
 while True:    
     n = n + k
     if n > 255:
@@ -41,7 +42,7 @@ while True:
         stars[s] = (0, 125, n)
     paws.duty_cycle = 0
     cat_eyes.duty_cycle = n * 200
-    tail_inner.duty_cycle = n * 200
+    tail_inner.duty_cycle = n * 30
     tail_outer.duty_cycle = n * 20
     while touch_right_ear.value:
         i = i + d
@@ -54,13 +55,13 @@ while True:
         for s in range(number_stars):
             stars[s] = (191, 0, i)
         paws.duty_cycle = 65535
-        if i < 117:
+        if i < 87:
             tail_inner.duty_cycle = 0
             tail_outer.duty_cycle = 65535
             cat_eyes.duty_cycle = 0
-        elif i < 177:
-            tail_inner.duty_cycle = 32767
-            tail_outer.duty_cycle = 32767
+        elif i < 207:
+            tail_inner.duty_cycle = 16000
+            tail_outer.duty_cycle = 1000
             cat_eyes.duty_cycle = 32767
         else:
             tail_inner.duty_cycle = 65535
