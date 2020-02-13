@@ -14,10 +14,11 @@ import pulseio
 # Eyes :D
 number_stars = 2
 stars = dotstar.DotStar(board.APA102_SCK, board.APA102_MOSI, number_stars, brightness=0.15)
-n = 50
+n = 30
 k = 1
 d = 1
-i = 40
+i = 30
+j = 255
 
 # Eye Corners
 cat_eyes = pulseio.PWMOut(board.D13, frequency=400, duty_cycle=0)
@@ -46,27 +47,21 @@ while True:
     tail_outer.duty_cycle = n * 20
     while touch_right_ear.value:
         i = i + d
-        if i > 255:
+        j = j - d
+        if i > 255 or j < 30:
             i = 255
+            j = 30
             d = -1
-        if i < 40:
-            i = 40
+        if i < 30 or j > 255:
+            i = 30
+            j = 255
             d = 1
         for s in range(number_stars):
             stars[s] = (191, 0, i)
-        paws.duty_cycle = i ** 2
-        if i < 87:
-            tail_inner.duty_cycle = 0
-            tail_outer.duty_cycle = 65535
-            cat_eyes.duty_cycle = 0
-        elif i < 207:
-            tail_inner.duty_cycle = 12000
-            tail_outer.duty_cycle = 10000
-            cat_eyes.duty_cycle = 32767
-        else:
-            tail_inner.duty_cycle = 65535
-            tail_outer.duty_cycle = 0
-            cat_eyes.duty_cycle = 65535
+        paws.duty_cycle = j ** 2
+        tail_inner.duty_cycle = i ** 2
+        tail_outer.duty_cycle = j ** 2
+        cat_eyes.duty_cycle = i ** 2
         time.sleep(0.01)
     while touch_left_ear.value:
         eye_pattern = random.randint(0, 3)
