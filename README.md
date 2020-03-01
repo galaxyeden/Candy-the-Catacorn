@@ -47,9 +47,7 @@ Also, I'm obviously not responsible for injuries or anything like that - this is
 
 ## How to use?
 
-I have no idea yet. I haven't, you know, actually written any software for it or anything. I expect you can probably [flash the Adafruit Trinket M0 bootloader](https://learn.adafruit.com/how-to-program-samd-bootloaders/trinket-m0-wiring) to it, and treat it like one of the Trinket M0 boards... given I did use them a lot as an inspiration and in testing ideas. No idea though, as I haven't actually tested yet :)
-
-Example code for the thing will come here in time, but for now, this is a board - software is up to you!
+This board is intended to be used with CircuitPython. I have cloned and modified others [bootloader](https://github.com/MermaidAllie/uf2-samdx1/tree/master/build/alliecat_candythecatacorn) and [CircuitPython firmware](https://github.com/MermaidAllie/circuitpython/blob/5.0.x/ports/atmel-samd/build-alliecat_candythecatacorn/firmware.uf2). These are very similar to the Adafruit Trinket M0, just rebranded basically, and you can use Adafruit Trinket M0 bootloader/firmware with a lot of success (it's how I prototyped this).
 
 ## Thanks
 
