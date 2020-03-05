@@ -20,12 +20,12 @@ k = 1
 d = 1
 i = 30
 j = 255
-cat_eyes = pulseio.PWMOut(board.D13, frequency=2000, duty_cycle=0)
-paws = pulseio.PWMOut(board.D0, frequency=2000, duty_cycle=0)
-tail_inner = pulseio.PWMOut(board.D2, frequency=2000, duty_cycle=0)
-tail_outer = pulseio.PWMOut(board.D4, frequency=2000, duty_cycle=0)
-touch_right_ear = touchio.TouchIn(board.D1)
-touch_left_ear = touchio.TouchIn(board.D3)
+eye_corners = pulseio.PWMOut(board.EYE_CORNERS, frequency=2000, duty_cycle=0)
+paws = pulseio.PWMOut(board.PAWS, frequency=2000, duty_cycle=0)
+tail_inner = pulseio.PWMOut(board.TAIL1, frequency=2000, duty_cycle=0)
+tail_outer = pulseio.PWMOut(board.TAIL2, frequency=2000, duty_cycle=0)
+touch_right_ear = touchio.TouchIn(board.EAR_R)
+touch_left_ear = touchio.TouchIn(board.EAR_L)
 
 # Main Loop
 while True:    
@@ -39,7 +39,7 @@ while True:
     for s in range(number_stars):
         stars[s] = (20, 0, int(n / 3))
     paws.duty_cycle = 350 - int(n / 2)
-    cat_eyes.duty_cycle = n * 50
+    eye_corners.duty_cycle = n * 50
     tail_inner.duty_cycle = n * 30
     tail_outer.duty_cycle = n * 20
     while touch_right_ear.value:
@@ -58,7 +58,7 @@ while True:
         paws.duty_cycle = j ** 2
         tail_inner.duty_cycle = i ** 2
         tail_outer.duty_cycle = j ** 2
-        cat_eyes.duty_cycle = i ** 2
+        eye_corners.duty_cycle = i ** 2
         time.sleep(0.01)
     while touch_left_ear.value:
         eye_pattern = random.randint(0, 3)
@@ -78,7 +78,7 @@ while True:
             stars[0] = (180, 0, 255)
             stars[1] = (180, 0, 255)
             time.sleep(random.uniform(0, 0.2))
-        cat_eyes.duty_cycle = random.choice([0, 65535])
+        eye_corners.duty_cycle = random.choice([0, 65535])
         tail_inner.duty_cycle = random.choice([0, 65535])
         tail_outer.duty_cycle = random.choice([0, 65535])
         paws.duty_cycle = random.choice([0, 65535])
