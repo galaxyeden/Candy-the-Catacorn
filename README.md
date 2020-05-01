@@ -59,7 +59,7 @@ Thank you to the following people:
 
 - Also, on that note, credit to [Lisa Frank](https://lisafrank.com/) because cute Lisa Frank images were one of my childhood inspirations, and they're just awesome and made me like this style of art. A Google image search gave me more ideas for how to draw the board outline and even how to place components to be part of the art (e.g. using a capacitor as a nose, as one drawing I found had a very square nose). The purple Lisa Frank cat, especially, gave me the idea for how the whiskers could work on a component-kitty. And, only in Lisa Frank land do RGB LED cat eyes make sense :) 
 
-- I used [this image from Freepik](https://www.freepik.com/free-vector/kawaii-style-unicorn-character-collection_4697393.htm#page=1&query=kawaii%20unicorn&position=7) for the general shape of the base (I needed something flatter than most to get the micro USB port in, and I liked how the cat's belly sat down) and head angle of the catacorn, and also for the style of the heart outline on the cheek.
+- I used [this image from Freepik](https://www.freepik.com/free-vector/kawaii-style-unicorn-character-collection_4697393.htm#page=1&query=kawaii%20unicorn&position=7) as inspiration for the general shape of the base (I needed something flatter than most to get the micro USB port in, and I liked how the cat's belly sat down) and head angle of the catacorn, and also for the style of the heart outline on the cheek.
 
 - [Emojipedia](https://emojipedia.org/) came in really useful to for bits of emoji-inspired inspiration, and the capacitive touch zones (which are the heart emoji from a font on my system).
 
