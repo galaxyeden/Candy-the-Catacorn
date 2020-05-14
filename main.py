@@ -1,6 +1,6 @@
 # Candy the Catacorn
 # By @GalaxyAllieCat
-# https://github.com/MermaidAllie/Candy-the-Catacorn
+# https://github.com/GalaxyAllie/Candy-the-Catacorn
 
 # Let's go read a few libraries. Catacorns want knowledge!
 import board
