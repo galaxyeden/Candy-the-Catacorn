@@ -16,10 +16,7 @@
     "mcu": "samd21e18a",
     "system": "samd",
     "usb_product": "CandyCatacorn",
-    "variant": "trinket_m0",
-    "zephyr": {
-       "variant": "adafruit_trinket_m0"
-    }
+    "variant": "trinket_m0"
   },
   "debug": {
     "jlink_device": "ATSAMD21E18",
@@ -28,8 +25,7 @@
     "svd_path": "ATSAMD21E18A.svd"
   },
   "frameworks": [
-    "arduino",
-    "zephyr"
+    "arduino"
   ],
   "name": "Candy the Catacorn",
   "upload": {
