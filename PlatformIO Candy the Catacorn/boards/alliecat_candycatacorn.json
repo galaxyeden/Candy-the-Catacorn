@@ -31,7 +31,7 @@
     "arduino",
     "zephyr"
   ],
-  "name": "Adafruit Trinket M0",
+  "name": "Candy the Catacorn",
   "upload": {
     "disable_flushing": true,
     "maximum_ram_size": 32768,
@@ -50,5 +50,5 @@
     "wait_for_upload_port": true
   },
   "url": "https://github.com/GalaxyAllie/candy-the-catacorn",
-  "vendor": "AllieCat"
+  "vendor": "GalaxyAllie"
 }
