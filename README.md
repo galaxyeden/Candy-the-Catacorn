@@ -47,7 +47,9 @@ Also, I'm obviously not responsible for injuries or anything like that - this is
 
 ## How to use?
 
-This board is intended to be used with CircuitPython. I have cloned and modified others [bootloader](https://github.com/MermaidAllie/uf2-samdx1/tree/master/build/alliecat_candythecatacorn) and [CircuitPython firmware](https://github.com/MermaidAllie/circuitpython/blob/5.0.x/ports/atmel-samd/build-alliecat_candythecatacorn/firmware.uf2). These are very similar to the Adafruit Trinket M0, just rebranded basically, and you can use Adafruit Trinket M0 bootloader/firmware with a lot of success (it's how I prototyped this).
+This board is intended to be used with either CircuitPython or [PlatformIO](https://platformio.org/). I have cloned and modified others [bootloader](https://github.com/MermaidAllie/uf2-samdx1/tree/master/build/alliecat_candythecatacorn) and [CircuitPython firmware](https://github.com/MermaidAllie/circuitpython/blob/5.0.x/ports/atmel-samd/build-alliecat_candythecatacorn/firmware.uf2). These are very similar to the Adafruit Trinket M0, just rebranded basically, and you can use Adafruit Trinket M0 bootloader/firmware with a lot of success (it's how I prototyped this).
+
+I have also included PlatformIO code and board configuration.
 
 ## Thanks
 
@@ -59,7 +61,7 @@ Thank you to the following people:
 
 - Also, on that note, credit to [Lisa Frank](https://lisafrank.com/) because cute Lisa Frank images were one of my childhood inspirations, and they're just awesome and made me like this style of art. A Google image search gave me more ideas for how to draw the board outline and even how to place components to be part of the art (e.g. using a capacitor as a nose, as one drawing I found had a very square nose). The purple Lisa Frank cat, especially, gave me the idea for how the whiskers could work on a component-kitty. And, only in Lisa Frank land do RGB LED cat eyes make sense :) 
 
-- I used [this image from Freepik](https://www.freepik.com/free-vector/kawaii-style-unicorn-character-collection_4697393.htm#page=1&query=kawaii%20unicorn&position=7) as inspiration for the general shape of the base (I needed something flatter than most to get the micro USB port in, and I liked how the cat's belly sat down) and head angle of the catacorn, and also for the style of the heart outline on the cheek.
+- I found [this image from Freepik](https://www.freepik.com/free-vector/kawaii-style-unicorn-character-collection_4697393.htm#page=1&query=kawaii%20unicorn&position=7) which gave me inspiration for the general shape of the base (I needed something flatter than most to get the micro USB port in, and I liked how the cat's belly sat down) and head angle of the catacorn, and also for the style of the heart outline on the cheek. That said, Candy isn't a clone of anyone else's catacorn, with her tiny little horn and big glowing glittery heart, she has her own place in the world - and many others also provided inspiration. So credit to everyone who's drawn a catacorn that's in the first few pages of Google Images results :D
 
 - [Emojipedia](https://emojipedia.org/) came in really useful to for bits of emoji-inspired inspiration, and the capacitive touch zones (which are the heart emoji from a font on my system).
 
