@@ -1,3 +1,6 @@
+// C++ demo program for Candy the Catacorn
+// http://www.galaxyallie.space/Candy-the-Catacorn/
+
 #include <Arduino.h>
 #include <SPI.h>
 #include <Adafruit_DotStar.h>
@@ -5,7 +8,7 @@
 #include <adafruit_ptc.h>
 #include <samd21_ptc_component.h>
 
-#define NUMSTARS  2
+#define NUMSTARS 2
 #define STARDATA 7
 #define STARCLOCK 8
 
@@ -22,7 +25,9 @@ int j = 255;
 int modeSel = 0;
 int rtime = 0;
 
-Adafruit_DotStar stars = Adafruit_DotStar(NUMSTARS, STARDATA, STARCLOCK, DOTSTAR_BRG);
+// Configure DotStar eyes and Adafruit FreeTouch for ears
+
+Adafruit_DotStar stars = Adafruit_DotStar(NUMSTARS, STARDATA, STARCLOCK, DOTSTAR_BGR);
 Adafruit_FreeTouch qt_1 = Adafruit_FreeTouch(A0, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
 Adafruit_FreeTouch qt_2 = Adafruit_FreeTouch(A3, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
 
@@ -36,12 +41,12 @@ Adafruit_FreeTouch qt_2 = Adafruit_FreeTouch(A3, OVERSAMPLE_4, RESISTOR_50K, FRE
 // - The eyes are the internal DotStar pin
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200); // USB serial is used for diagnostics messages
   pinMode(13, OUTPUT);
   pinMode(0, OUTPUT);
   pinMode(2, OUTPUT);
   pinMode(4, OUTPUT);
-  stars.setBrightness(191);
+  stars.setBrightness(191); // 75% max brightness to reduce heat and aging of DotStars
   stars.begin();
   stars.show();
   if (! qt_1.begin()) {
@@ -53,6 +58,8 @@ void setup() {
   initialRTouchValue = qt_1.measure();
   initialLTouchValue = qt_2.measure();
 }
+
+// Capacitive touch detection function for right ear (Candy's right)
 
 bool RcapTouchDetect() {
     Serial.println("\n*** Touch Result ***");
@@ -67,6 +74,8 @@ bool RcapTouchDetect() {
         return false;
     }
 }
+
+// Capacitive touch detection function for left ear (Candy's left)
 
 bool LcapTouchDetect() {
     Serial.println("\n*** Touch Result ***");
@@ -87,7 +96,7 @@ void loop() {
       delay(50);
       if(RcapTouchDetect() == true){
           modeSel++;
-          if(modeSel > 1){
+          if(modeSel > 2){
             modeSel = 0;
           }
           delay(300);
@@ -97,7 +106,7 @@ void loop() {
       delay(50);
       if(LcapTouchDetect() == true){
           modeSel++;
-          if(modeSel > 1){
+          if(modeSel > 2){
             modeSel = 0;
           }
           delay(300);
@@ -117,7 +126,7 @@ void loop() {
       n = 30;
     }
     for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-      stars.setPixelColor(pixelSel, 0, 10, ((n / 12) + 3));
+      stars.setPixelColor(pixelSel, 10, 0, ((n / 12) + 3));
     }
     stars.show();
     analogWrite(13, (n / 8));
@@ -128,7 +137,17 @@ void loop() {
   }
   if(modeSel == 1){
     for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-      stars.setPixelColor(pixelSel, 0, 5, 5);
+      stars.setPixelColor(pixelSel, 5, 0, 5);
+    }
+    stars.show();
+    analogWrite(13, 10);
+    analogWrite(0, 255);
+    analogWrite(2, 10);
+    analogWrite(4, 10);
+  }
+  if(modeSel == 2){
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 0, 10, 15);
     }
     stars.show();
     analogWrite(13, 10);
