@@ -14,6 +14,11 @@ int initialRTouchValue = 0;
 int RtouchValue = 0;
 int initialLTouchValue = 0;
 int LtouchValue = 0;
+int n = 30;
+int k = 1;
+int d = 1;
+int i = 30;
+int j = 255;
 
 Adafruit_DotStar stars = Adafruit_DotStar(NUMSTARS, STARDATA, STARCLOCK, DOTSTAR_BRG);
 Adafruit_FreeTouch qt_1 = Adafruit_FreeTouch(A0, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
@@ -61,12 +66,24 @@ bool LcapTouchDetect() {
 }
 
 void loop() {
-  analogWrite(13, 10);
+  n = n + k;
+  if (n > 255)
+  {
+    k = -1;
+    n = 255;
+  }
+  if (n < 30)
+  {
+    k = 1;
+    n = 30;
+  }
   for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-    stars.setPixelColor(pixelSel, 0, 35, 50);
+    stars.setPixelColor(pixelSel, 0, 16, 30);
   }
   stars.show();
-  analogWrite(0, 20);
-  analogWrite(2, 31);
-  analogWrite(4, 31);
+  analogWrite(13, (n / 5));
+  analogWrite(0, (n / 8));
+  analogWrite(2, (n / 5));
+  analogWrite(4, (n / 5));
+  delay(10);
 }
