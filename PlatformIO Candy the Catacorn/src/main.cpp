@@ -24,6 +24,7 @@ int i = 30;
 int j = 255;
 int modeSel = 0;
 int rtime = 0;
+bool rTriggered = false;
 
 // Configure DotStar eyes and Adafruit FreeTouch for ears
 
@@ -92,21 +93,60 @@ bool LcapTouchDetect() {
 }
 
 void loop() {
-  if(RcapTouchDetect() == true){
+  if(RcapTouchDetect() == true)
+  {
       delay(50);
-      if(RcapTouchDetect() == true){
-          modeSel--;
-          if(modeSel < 0){
-            modeSel = 3;
-          }
-          delay(300);
+      if(RcapTouchDetect() == true)
+      {
+          rTriggered = true;
       }
+      while (rTriggered == true)
+      {
+        analogWrite(13, 2);
+        analogWrite(0, 2);
+        analogWrite(2, 2);
+        analogWrite(4, 2);
+        for(long rainBowStarColour = 0; rainBowStarColour < 5 * 65535 && rTriggered == true; rainBowStarColour += 256) 
+        {
+          uint32_t rainBowSel = stars.gamma32(stars.ColorHSV(rainBowStarColour));
+            for(int pixelSel = 0; pixelSel < NUMSTARS && rTriggered == true; pixelSel++)
+            {
+                stars.setPixelColor(pixelSel, rainBowSel);
+            }
+            stars.show();
+            if(RcapTouchDetect() == false)
+            {
+              delay(30);
+              if(RcapTouchDetect() == false)
+              {
+                rTriggered = false;
+              }
+            }
+            delay(50);
+        }
+        analogWrite(13, 0);
+        analogWrite(0, 0);
+        analogWrite(2, 0);
+        analogWrite(4, 0);
+        if(RcapTouchDetect() == false)
+        {
+          delay(30);
+          if(RcapTouchDetect() == false)
+          {
+            rTriggered = false;
+          }
+        }
+      }
+      
   }
-  if(LcapTouchDetect() == true){
+  if(LcapTouchDetect() == true)
+  {
       delay(50);
-      if(LcapTouchDetect() == true){
+      if(LcapTouchDetect() == true)
+      {
           modeSel++;
-          if(modeSel > 3){
+          if(modeSel > 3)
+          {
             modeSel = 0;
           }
           delay(300);
@@ -158,7 +198,8 @@ void loop() {
     analogWrite(4, (n / 8));
     delay(10);
   }
-  if(modeSel == 2){
+  if(modeSel == 2)
+  {
     for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
       stars.setPixelColor(pixelSel, 5, 0, 5);
     }
@@ -168,7 +209,8 @@ void loop() {
     analogWrite(2, 10);
     analogWrite(4, 10);
   }
-  if(modeSel == 3){
+  if(modeSel == 3)
+  {
     for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
       stars.setPixelColor(pixelSel, 0, 10, 15);
     }
