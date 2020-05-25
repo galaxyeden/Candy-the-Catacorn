@@ -19,6 +19,8 @@ int k = 1;
 int d = 1;
 int i = 30;
 int j = 255;
+int modeSel = 0;
+int rtime = 0;
 
 Adafruit_DotStar stars = Adafruit_DotStar(NUMSTARS, STARDATA, STARCLOCK, DOTSTAR_BRG);
 Adafruit_FreeTouch qt_1 = Adafruit_FreeTouch(A0, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
@@ -34,6 +36,7 @@ Adafruit_FreeTouch qt_2 = Adafruit_FreeTouch(A3, OVERSAMPLE_4, RESISTOR_50K, FRE
 // - The eyes are the internal DotStar pin
 
 void setup() {
+  Serial.begin(115200);
   pinMode(13, OUTPUT);
   pinMode(0, OUTPUT);
   pinMode(2, OUTPUT);
@@ -41,12 +44,22 @@ void setup() {
   stars.setBrightness(191);
   stars.begin();
   stars.show();
+  if (! qt_1.begin()) {
+    Serial.println("Failed to begin qt on pin A0");
+  }
+  if (! qt_2.begin()) {
+    Serial.println("Failed to begin qt on pin A3");
+  }
   initialRTouchValue = qt_1.measure();
   initialLTouchValue = qt_2.measure();
 }
 
 bool RcapTouchDetect() {
+    Serial.println("\n*** Touch Result ***");
+    rtime = millis();
     RtouchValue = qt_1.measure(); 
+    Serial.print("Right Ear: "); Serial.print(RtouchValue);
+    Serial.print(" (");  Serial.print(millis() - rtime); Serial.println(" ms)");   
     if(RtouchValue > (initialRTouchValue + 100)){
         return true;
     }
@@ -56,7 +69,11 @@ bool RcapTouchDetect() {
 }
 
 bool LcapTouchDetect() {
+    Serial.println("\n*** Touch Result ***");
+    rtime = millis();
     LtouchValue = qt_2.measure(); 
+    Serial.print("Left Ear: "); Serial.print(LtouchValue);
+    Serial.print(" (");  Serial.print(millis() - rtime); Serial.println(" ms)");   
     if(LtouchValue > (initialLTouchValue + 100)){
         return true;
     }
@@ -66,24 +83,57 @@ bool LcapTouchDetect() {
 }
 
 void loop() {
-  n = n + k;
-  if (n > 255)
+  if(RcapTouchDetect() == true){
+      delay(50);
+      if(RcapTouchDetect() == true){
+          modeSel++;
+          if(modeSel > 1){
+            modeSel = 0;
+          }
+          delay(300);
+      }
+  }
+  if(LcapTouchDetect() == true){
+      delay(50);
+      if(LcapTouchDetect() == true){
+          modeSel++;
+          if(modeSel > 1){
+            modeSel = 0;
+          }
+          delay(300);
+      }
+  }
+  if (modeSel == 0)
   {
-    k = -1;
-    n = 255;
+    n = n + k;
+    if (n > 255)
+    {
+      k = -1;
+      n = 255;
+    }
+    if (n < 30)
+    {
+      k = 1;
+      n = 30;
+    }
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 0, 10, ((n / 12) + 3));
+    }
+    stars.show();
+    analogWrite(13, (n / 8));
+    analogWrite(0, (n / 20));
+    analogWrite(2, (n / 8));
+    analogWrite(4, (n / 8));
+    delay(10);
   }
-  if (n < 30)
-  {
-    k = 1;
-    n = 30;
+  if(modeSel == 1){
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 0, 5, 5);
+    }
+    stars.show();
+    analogWrite(13, 10);
+    analogWrite(0, 255);
+    analogWrite(2, 10);
+    analogWrite(4, 10);
   }
-  for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-    stars.setPixelColor(pixelSel, 0, 10, ((n / 12) + 3));
-  }
-  stars.show();
-  analogWrite(13, (n / 8));
-  analogWrite(0, (n / 20));
-  analogWrite(2, (n / 8));
-  analogWrite(4, (n / 8));
-  delay(10);
 }

@@ -1,4 +1,4 @@
-pi# Candy the Catacorn
+# Candy the Catacorn
 # By @GalaxyAllieCat
 # https://github.com/GalaxyAllie/Candy-the-Catacorn
 
@@ -20,6 +20,7 @@ k = 1
 d = 1
 i = 30
 j = 255
+
 eye_corners = pulseio.PWMOut(board.EYE_CORNERS, frequency=2000, duty_cycle=0)
 paws = pulseio.PWMOut(board.PAWS, frequency=2000, duty_cycle=0)
 tail_inner = pulseio.PWMOut(board.TAIL1, frequency=2000, duty_cycle=0)
