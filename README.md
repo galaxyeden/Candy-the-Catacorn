@@ -2,7 +2,7 @@
 
 Catacorn Badge :D I don't care how you spell it, I've spelled it catacorn for years. Caticorn is equally valid! It's really small, and cute - but you should be able to program it to do a lot of things.
 
-You can [order from OSH Park](https://oshpark.com/shared_projects/ZzWxhv0r) - that's not a sponsored link, and they're by no means the cheapest place to order from, I only link as they're probably the cheapest way to get a small number of purple boards with a lead-free finish (good as they'll be handled!) - and their service has always been good to me.
+You can [order from OSH Park](https://oshpark.com/shared_projects/pnVDiM8w) - that's not a sponsored link, and they're by no means the cheapest place to order from, I only link as they're probably the cheapest way to get a small number of purple boards with a lead-free finish (good as they'll be handled!) - and their service has always been good to me.
 
 ## Background
 
