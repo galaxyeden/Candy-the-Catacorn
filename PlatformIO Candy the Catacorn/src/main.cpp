@@ -93,7 +93,7 @@ bool LcapTouchDetect() {
 }
 
 void loop() {
-  if(RcapTouchDetect() == true)
+  if(RcapTouchDetect() == true) // Right ear rainbow mode!!!
   {
       delay(50);
       if(RcapTouchDetect() == true)
@@ -139,7 +139,7 @@ void loop() {
       }
       
   }
-  if(LcapTouchDetect() == true)
+  if(LcapTouchDetect() == true) // Left ear mode switch
   {
       delay(50);
       if(LcapTouchDetect() == true)
