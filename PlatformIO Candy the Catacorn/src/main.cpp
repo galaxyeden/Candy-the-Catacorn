@@ -96,7 +96,7 @@ void loop() {
       delay(50);
       if(RcapTouchDetect() == true){
           modeSel++;
-          if(modeSel > 2){
+          if(modeSel > 3){
             modeSel = 0;
           }
           delay(300);
@@ -106,7 +106,7 @@ void loop() {
       delay(50);
       if(LcapTouchDetect() == true){
           modeSel++;
-          if(modeSel > 2){
+          if(modeSel > 3){
             modeSel = 0;
           }
           delay(300);
@@ -135,7 +135,30 @@ void loop() {
     analogWrite(4, (n / 8));
     delay(10);
   }
-  if(modeSel == 1){
+  if (modeSel == 1)
+  {
+    n = n + k;
+    if (n > 255)
+    {
+      k = -1;
+      n = 255;
+    }
+    if (n < 30)
+    {
+      k = 1;
+      n = 30;
+    }
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 0, ((n / 12) + 3), 15);
+    }
+    stars.show();
+    analogWrite(13, (n / 8));
+    analogWrite(0, (n / 20));
+    analogWrite(2, (n / 8));
+    analogWrite(4, (n / 8));
+    delay(10);
+  }
+  if(modeSel == 2){
     for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
       stars.setPixelColor(pixelSel, 5, 0, 5);
     }
@@ -145,7 +168,7 @@ void loop() {
     analogWrite(2, 10);
     analogWrite(4, 10);
   }
-  if(modeSel == 2){
+  if(modeSel == 3){
     for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
       stars.setPixelColor(pixelSel, 0, 10, 15);
     }
