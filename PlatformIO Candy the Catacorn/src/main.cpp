@@ -78,12 +78,12 @@ void loop() {
     n = 30;
   }
   for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-    stars.setPixelColor(pixelSel, 0, 16, 30);
+    stars.setPixelColor(pixelSel, 0, 10, ((n / 12) + 3));
   }
   stars.show();
-  analogWrite(13, (n / 5));
-  analogWrite(0, (n / 8));
-  analogWrite(2, (n / 5));
-  analogWrite(4, (n / 5));
+  analogWrite(13, (n / 8));
+  analogWrite(0, (n / 20));
+  analogWrite(2, (n / 8));
+  analogWrite(4, (n / 8));
   delay(10);
 }
