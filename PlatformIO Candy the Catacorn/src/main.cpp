@@ -10,6 +10,10 @@
 #define STARCLOCK 8
 
 int moving = 0;
+int initialRTouchValue = 0;
+int RtouchValue = 0;
+int initialLTouchValue = 0;
+int LtouchValue = 0;
 
 Adafruit_DotStar stars = Adafruit_DotStar(NUMSTARS, STARDATA, STARCLOCK, DOTSTAR_BRG);
 Adafruit_FreeTouch qt_1 = Adafruit_FreeTouch(A0, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
@@ -32,6 +36,28 @@ void setup() {
   stars.setBrightness(191);
   stars.begin();
   stars.show();
+  initialRTouchValue = qt_1.measure();
+  initialLTouchValue = qt_2.measure();
+}
+
+bool RcapTouchDetect() {
+    RtouchValue = qt_1.measure(); 
+    if(RtouchValue > (initialRTouchValue + 100)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool LcapTouchDetect() {
+    LtouchValue = qt_2.measure(); 
+    if(LtouchValue > (initialLTouchValue + 100)){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 void loop() {
