@@ -9,6 +9,8 @@
 #define STARDATA 7
 #define STARCLOCK 8
 
+int moving = 0;
+
 Adafruit_DotStar stars = Adafruit_DotStar(NUMSTARS, STARDATA, STARCLOCK, DOTSTAR_BRG);
 Adafruit_FreeTouch qt_1 = Adafruit_FreeTouch(A0, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
 Adafruit_FreeTouch qt_2 = Adafruit_FreeTouch(A3, OVERSAMPLE_4, RESISTOR_50K, FREQ_MODE_NONE);
@@ -16,10 +18,10 @@ Adafruit_FreeTouch qt_2 = Adafruit_FreeTouch(A3, OVERSAMPLE_4, RESISTOR_50K, FRE
 // Pin notes:
 // - D0/A2 controls the white lights on the paws
 // - D1/A0 is the right ear capacitive touch sensor
+// - D3/A3 is the left ear capacitive touch sensor
 // - D2/A1 is the first tail section
 // - D4/A4 is the second tail section 
 // - D13 is the corner of the eyes
-// - D3/A3 is the left ear capacitive touch sensor
 // - The eyes are the internal DotStar pin
 
 void setup() {
@@ -33,9 +35,9 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(13, HIGH);
+  analogWrite(13, 10);
   for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-    stars.setPixelColor(pixelSel, 31, 0, 50);
+    stars.setPixelColor(pixelSel, 0, 35, 50);
   }
   stars.show();
   analogWrite(0, 20);

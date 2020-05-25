@@ -16,7 +16,8 @@
     "mcu": "samd21e18a",
     "system": "samd",
     "usb_product": "CandyCatacorn",
-    "variant": "trinket_m0"
+    "variant": "candy_catacorn",
+    "variants_dir": "variants"
   },
   "debug": {
     "jlink_device": "ATSAMD21E18",
