@@ -106,7 +106,7 @@ void loop() {
         analogWrite(0, 2);
         analogWrite(2, 2);
         analogWrite(4, 2);
-        for(long rainBowStarColour = 0; rainBowStarColour < 5 * 65535 && rTriggered == true; rainBowStarColour += 256) 
+        for(long rainBowStarColour = 28672; rainBowStarColour < 94207 && rTriggered == true; rainBowStarColour += 256) 
         {
           uint32_t rainBowSel = stars.gamma32(stars.ColorHSV(rainBowStarColour));
             for(int pixelSel = 0; pixelSel < NUMSTARS && rTriggered == true; pixelSel++)
@@ -122,12 +122,8 @@ void loop() {
                 rTriggered = false;
               }
             }
-            delay(50);
+            delay(40);
         }
-        analogWrite(13, 0);
-        analogWrite(0, 0);
-        analogWrite(2, 0);
-        analogWrite(4, 0);
         if(RcapTouchDetect() == false)
         {
           delay(30);
