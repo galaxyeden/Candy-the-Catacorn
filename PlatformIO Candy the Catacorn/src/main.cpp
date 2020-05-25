@@ -95,9 +95,9 @@ void loop() {
   if(RcapTouchDetect() == true){
       delay(50);
       if(RcapTouchDetect() == true){
-          modeSel++;
-          if(modeSel > 3){
-            modeSel = 0;
+          modeSel--;
+          if(modeSel < 0){
+            modeSel = 3;
           }
           delay(300);
       }
@@ -106,7 +106,7 @@ void loop() {
       delay(50);
       if(LcapTouchDetect() == true){
           modeSel++;
-          if(modeSel > 3){
+          if(modeSel < 3){
             modeSel = 0;
           }
           delay(300);
