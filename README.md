@@ -1,4 +1,4 @@
-# Candy the Catacorn
+# Candy the Catacorn 🐱 + 🦄
 
 Catacorn Badge :D I don't care how you spell it, I've spelled it catacorn for years. Caticorn is equally valid! It's really small, and cute - but you should be able to program it to do a lot of things.
 
