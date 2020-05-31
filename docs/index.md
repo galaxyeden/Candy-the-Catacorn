@@ -1,4 +1,4 @@
-# Who is Candy 🐈🦄?
+# Who is Candy? 🐈🦄
 
 Candy is a catacorn (aka caticorn, unicat) - a cat-unicorn hybrid - who is here to make your day a little better with a flash of blinky LEDs and some sparkle! She loves having her ears petted, and will reward you with even more fun blinky things!
 
