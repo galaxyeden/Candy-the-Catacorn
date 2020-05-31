@@ -38,4 +38,4 @@ Candy is a catacorn (aka caticorn, unicat) - a cat-unicorn hybrid - who is here 
   - Sadly, does require you to install some software 😿
   - But, a much better experience awaits! 😻
 
-In short - I'll be sending these boards to friends with the *PlatformIO* version of the code, but I'm keeping *NyanPython* around as it has the benefit of not needing any specific software to get started programming, which may be of benefit to someone.
+In short - I'll be sending these boards to friends with the _PlatformIO_ version of the code, but I'm keeping _NyanPython_ around as it has the benefit of not needing any specific software to get started programming, which may be of benefit to someone.
