@@ -25,7 +25,7 @@ Candy is a catacorn (aka caticorn, unicat) - a cat-unicorn hybrid - who is here 
 
 ## Teaching
 
-- Custom derivitive of [MicroPython](https://micropython.org/) formed from [CircuitPython](https://circuitpython.org/) called [NyanPython](https://github.com/GalaxyAllie/nyanpython)
+- Custom derivitive of [MicroPython](https://micropython.org/) forked from [CircuitPython](https://circuitpython.org/) called [NyanPython](https://github.com/GalaxyAllie/nyanpython)
   - This was my original firmware, it creates a drive called NYANPY that files can be copied onto
   - Uses CircuitPython libraries to control capacitive touch, DotStar, etc
   - It works fine but was a bit annoying to have to update and maintain
