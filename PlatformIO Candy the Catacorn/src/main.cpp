@@ -43,10 +43,10 @@ Adafruit_FreeTouch qt_2 = Adafruit_FreeTouch(A3, OVERSAMPLE_4, RESISTOR_50K, FRE
 
 void setup() {
   Serial.begin(115200); // USB serial is used for diagnostics messages
-  pinMode(13, OUTPUT);
-  pinMode(0, OUTPUT);
-  pinMode(2, OUTPUT);
-  pinMode(4, OUTPUT);
+  pinMode(13, OUTPUT); // Eye corners
+  pinMode(0, OUTPUT); // White front paws
+  pinMode(2, OUTPUT); // Tail section one
+  pinMode(4, OUTPUT); // Tail section two
   stars.setBrightness(191); // 75% max brightness to reduce heat and aging of DotStars
   stars.begin();
   stars.show();
