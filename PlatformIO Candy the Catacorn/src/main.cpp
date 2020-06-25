@@ -1,5 +1,5 @@
 // C++ demo program for Candy the Catacorn
-// http://www.galaxyallie.space/Candy-the-Catacorn/
+// http://galaxyallie.space/Candy-the-Catacorn/
 
 #include <Arduino.h>
 #include <SPI.h>
