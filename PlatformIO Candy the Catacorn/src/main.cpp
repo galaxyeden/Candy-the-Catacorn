@@ -23,6 +23,7 @@ int d = 1;
 int i = 30;
 int j = 255;
 int modeSel = 0;
+int light = 0;
 int rtime = 0;
 bool rTriggered = false;
 
@@ -92,6 +93,77 @@ bool LcapTouchDetect() {
     }
 }
 
+void lightShow(int light) {
+  if (light == 0)
+  {
+    n = n + k;
+    if (n > 255)
+    {
+      k = -1;
+      n = 255;
+    }
+    if (n < 30)
+    {
+      k = 1;
+      n = 30;
+    }
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 10, 0, ((n / 12) + 3));
+    }
+    stars.show();
+    analogWrite(13, (n / 8));
+    analogWrite(0, (n / 20));
+    analogWrite(2, (n / 8));
+    analogWrite(4, (n / 8));
+    delay(10);
+  }
+  if (light == 1)
+  {
+    n = n + k;
+    if (n > 255)
+    {
+      k = -1;
+      n = 255;
+    }
+    if (n < 30)
+    {
+      k = 1;
+      n = 30;
+    }
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 0, ((n / 12) + 3), 15);
+    }
+    stars.show();
+    analogWrite(13, (n / 8));
+    analogWrite(0, (n / 20));
+    analogWrite(2, (n / 8));
+    analogWrite(4, (n / 8));
+    delay(10);
+  }
+  if(light == 2)
+  {
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 5, 0, 5);
+    }
+    stars.show();
+    analogWrite(13, 10);
+    analogWrite(0, 255);
+    analogWrite(2, 10);
+    analogWrite(4, 10);
+  }
+  if(light == 3)
+  {
+    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
+      stars.setPixelColor(pixelSel, 0, 10, 15);
+    }
+    stars.show();
+    analogWrite(13, 10);
+    analogWrite(0, 255);
+    analogWrite(2, 10);
+    analogWrite(4, 10);
+  }
+}
+
 void loop() {
   if(RcapTouchDetect() == true) // Right ear rainbow mode!!!
   {
@@ -147,73 +219,6 @@ void loop() {
           }
           delay(300);
       }
-  }
-  if (modeSel == 0)
-  {
-    n = n + k;
-    if (n > 255)
-    {
-      k = -1;
-      n = 255;
-    }
-    if (n < 30)
-    {
-      k = 1;
-      n = 30;
-    }
-    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-      stars.setPixelColor(pixelSel, 10, 0, ((n / 12) + 3));
-    }
-    stars.show();
-    analogWrite(13, (n / 8));
-    analogWrite(0, (n / 20));
-    analogWrite(2, (n / 8));
-    analogWrite(4, (n / 8));
-    delay(10);
-  }
-  if (modeSel == 1)
-  {
-    n = n + k;
-    if (n > 255)
-    {
-      k = -1;
-      n = 255;
-    }
-    if (n < 30)
-    {
-      k = 1;
-      n = 30;
-    }
-    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-      stars.setPixelColor(pixelSel, 0, ((n / 12) + 3), 15);
-    }
-    stars.show();
-    analogWrite(13, (n / 8));
-    analogWrite(0, (n / 20));
-    analogWrite(2, (n / 8));
-    analogWrite(4, (n / 8));
-    delay(10);
-  }
-  if(modeSel == 2)
-  {
-    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-      stars.setPixelColor(pixelSel, 5, 0, 5);
-    }
-    stars.show();
-    analogWrite(13, 10);
-    analogWrite(0, 255);
-    analogWrite(2, 10);
-    analogWrite(4, 10);
-  }
-  if(modeSel == 3)
-  {
-    for(int pixelSel = 0; pixelSel < NUMSTARS; pixelSel++){
-      stars.setPixelColor(pixelSel, 0, 10, 15);
-    }
-    stars.show();
-    analogWrite(13, 10);
-    analogWrite(0, 255);
-    analogWrite(2, 10);
-    analogWrite(4, 10);
-  }
+  };
+  lightShow(modeSel);
 }
