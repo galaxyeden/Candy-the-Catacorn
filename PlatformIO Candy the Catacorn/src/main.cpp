@@ -25,7 +25,7 @@ int j = 255;
 int modeSel = 0;
 int light = 0;
 int rtime = 0;
-bool rTriggered = false;
+bool rainbowActive = false;
 
 // Configure DotStar eyes and Adafruit FreeTouch for ears
 
@@ -164,61 +164,64 @@ void lightShow(int light) {
   }
 }
 
-void loop() {
-  if(RcapTouchDetect() == true) // Right ear rainbow mode!!!
+void rainbowTime () {
+  while (rainbowActive == true)
   {
-      delay(50);
-      if(RcapTouchDetect() == true)
-      {
-          rTriggered = true;
-      }
-      while (rTriggered == true)
-      {
-        analogWrite(13, 2);
-        analogWrite(0, 2);
-        analogWrite(2, 2);
-        analogWrite(4, 2);
-        for(long rainBowStarColour = 28672; rainBowStarColour < 94207 && rTriggered == true; rainBowStarColour += 256) 
+    analogWrite(13, 2);
+    analogWrite(0, 2);
+    analogWrite(2, 2);
+    analogWrite(4, 2);
+    for(long rainBowStarColour = 28672; rainBowStarColour < 94207 && rainbowActive == true; rainBowStarColour += 256) 
+    {
+      uint32_t rainBowSel = stars.gamma32(stars.ColorHSV(rainBowStarColour));
+        for(int pixelSel = 0; pixelSel < NUMSTARS && rainbowActive == true; pixelSel++)
         {
-          uint32_t rainBowSel = stars.gamma32(stars.ColorHSV(rainBowStarColour));
-            for(int pixelSel = 0; pixelSel < NUMSTARS && rTriggered == true; pixelSel++)
-            {
-                stars.setPixelColor(pixelSel, rainBowSel);
-            }
-            stars.show();
-            if(RcapTouchDetect() == false)
-            {
-              delay(30);
-              if(RcapTouchDetect() == false)
-              {
-                rTriggered = false;
-              }
-            }
-            delay(40);
+            stars.setPixelColor(pixelSel, rainBowSel);
         }
+        stars.show();
         if(RcapTouchDetect() == false)
         {
           delay(30);
           if(RcapTouchDetect() == false)
           {
-            rTriggered = false;
+            rainbowActive = false;
           }
         }
+        delay(40);
+    }
+    if(RcapTouchDetect() == false)
+    {
+      delay(30);
+      if(RcapTouchDetect() == false)
+      {
+        rainbowActive = false;
       }
-      
+    }
+  }
+}
+
+void loop() {
+  if(RcapTouchDetect() == true) // Right ear rainbow mode!!!
+  {
+    delay(50);
+    if(RcapTouchDetect() == true)
+    {
+        rainbowActive = true;
+        rainbowTime();
+    }      
   }
   if(LcapTouchDetect() == true) // Left ear mode switch
   {
-      delay(50);
-      if(LcapTouchDetect() == true)
+    delay(50);
+    if(LcapTouchDetect() == true)
+    {
+      modeSel++;
+      if(modeSel > 3)
       {
-          modeSel++;
-          if(modeSel > 3)
-          {
-            modeSel = 0;
-          }
-          delay(300);
+        modeSel = 0;
       }
+      delay(300);
+    }
   };
   lightShow(modeSel);
 }
