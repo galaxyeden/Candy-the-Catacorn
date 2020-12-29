@@ -93,6 +93,8 @@ bool LcapTouchDetect() {
     }
 }
 
+// Light show for main loop
+
 void lightShow(int light) {
   if (light == 0)
   {
@@ -163,6 +165,8 @@ void lightShow(int light) {
     analogWrite(4, 10);
   }
 }
+
+// Rainbow generator
 
 void rainbowTime () {
   while (rainbowActive == true)
