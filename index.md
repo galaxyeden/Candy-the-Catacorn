@@ -8,7 +8,7 @@ Candy is a catacorn (aka caticorn, unicat) - a cat-unicorn hybrid - who is here 
 
 ## Special Powers
 
-- 🌈Eyes shine bright in many colours!
+- 🌈Eyes shine bright in many colors!
 - 🔦Front paws light the way in excellent true white (95 CRI)!
 - Ears respond to touch!
 
