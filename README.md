@@ -10,6 +10,8 @@ You can [order from OSH Park](https://oshpark.com/shared_projects/pnVDiM8w) - th
 
 I have wanted to learn more about electrical engineering and the 'hardware' side of things, so have started playing with dev boards including the Adafruit Trinket M0, which is the board that inspired this project. But none of them were catacorn enough, so I decided to make one :)
 
+It's also a great way to teach other people how to create microcontroller projects!
+
 ## Copyright/Liability
 
 I'm not a lawyer, I believe everything I've based this on is licensed in a way I can draw inspiration, but let me know if you want me to get rid of something. All my work is Creative Commons, see license file. Also, I'm obviously not responsible for injuries or anything like that - this is definitely not a safety-tested, commercial project. Build at your own risk. It probably won't even work :)
